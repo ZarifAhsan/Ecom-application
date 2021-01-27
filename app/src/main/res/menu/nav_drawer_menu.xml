@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/nav_sports"
+            android:title="@string/sports" />
+        <item
+            android:id="@+id/nav_clothing"
+            android:title="@string/clothing" />
+        <item
+            android:id="@+id/nav_tech"
+            android:title="@string/tech"/>
+
+        <item
+            android:id="@+id/nav_diy"
+            android:title="@string/diy"/>
+    </group>
+
+</menu>

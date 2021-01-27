@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.ecom_application.ui.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/home_fragment" />
+
+    <fragment
+        android:id="@+id/nav_sports"
+        android:name="com.example.ecom_application.ui.sports.SportsFragment"
+        android:label="@string/sports"
+        tools:layout="@layout/sports_fragment" />
+
+    <fragment
+        android:id="@+id/nav_clothing"
+        android:name="com.example.ecom_application.ui.clothing.ClothingFragment"
+        android:label="@string/clothing"
+        tools:layout="@layout/clothing_fragment" />
+
+    <fragment
+        android:id="@+id/nav_tech"
+        android:name="com.example.ecom_application.ui.tech.TechFragment"
+        android:label="@string/tech"
+        tools:layout="@layout/tech_fragment"/>
+
+    <fragment
+        android:id="@+id/nav_diy"
+        android:name="com.example.ecom_application.ui.diy.DiyFragment"
+        android:label="@string/diy"
+        tools:layout="@layout/fragment"/>
+
+</navigation>

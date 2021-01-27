@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="150dp"
+    android:layout_height="200dp"
+    android:layout_margin="8dp"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/item_image_home"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:padding="16dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/clothingshirt"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/item_name_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:paddingTop="8dp"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:text="@string/clothing"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/item_price_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_69"
+                android:textColor="@color/black"
+                android:paddingHorizontal="16dp"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="16dp"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageView
+                android:id="@+id/add_to_cart"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="4dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginVertical="16dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_baseline_add_shopping_cart_24"
+                android:contentDescription="@string/todo" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

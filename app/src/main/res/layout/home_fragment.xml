@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <LinearLayout
+        android:id="@+id/contents"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recommended_for_you"
+            android:layout_margin="8dp"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+
+        <View
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_width="match_parent"
+            android:background="@android:color/black"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_home_1"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="32dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_margin="8dp"
+            android:text="@string/categories"
+            android:textSize="26sp"/>
+
+        <View
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_width="match_parent"
+            android:background="@android:color/black"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_margin="8dp"
+            android:text="@string/home_appliances"
+            android:textSize="22sp"
+            android:layout_marginBottom="8dp"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_home_2"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:orientation="horizontal"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/internet_connectivity1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/no_internet_connection"
+        android:textSize="28sp"
+        android:visibility="invisible"/>
+
+</RelativeLayout>
+
+
+
