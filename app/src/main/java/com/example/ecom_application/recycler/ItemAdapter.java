@@ -46,6 +46,9 @@ public class ItemAdapter extends FirebaseRecyclerAdapter<Products, ItemAdapter.V
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ViewItem.class);
+            intent.putExtra("Name", products.getName());
+            intent.putExtra("Price", products.getPrice().toString());
+            intent.putExtra("Image_Url", products.getImage_Url());
             context.startActivity(intent);
         });
     }

@@ -6,12 +6,40 @@
     tools:context=".ui.ViewItem"
     android:orientation="vertical">
 
-    <TextView
+    <ImageView
+        android:id="@+id/view_item_img"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/view_item"
-        android:gravity="center"
+        android:layout_height="400dp"
+        android:src="@drawable/clothingshirt"
+        android:padding="16dp"/>
+
+    <TextView
+        android:id="@+id/view_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shirt"
+        android:paddingStart="16dp"
+        android:paddingEnd="0dp"
         android:textSize="32sp"
         android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/view_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_69"
+        android:textSize="24sp"
+        android:paddingStart="16dp"
+        android:paddingEnd="0dp"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:textColor="@color/black"
+        android:text="@string/add_to_cart"
+        android:background="@color/black"/>
 
 </LinearLayout>
