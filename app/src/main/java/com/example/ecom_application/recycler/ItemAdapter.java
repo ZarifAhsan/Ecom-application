@@ -22,7 +22,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 public class ItemAdapter extends FirebaseRecyclerAdapter<Products, ItemAdapter.ViewHolder> {
 
-    private Context context;
+    private final Context context;
 
     public ItemAdapter(Context ct, @NonNull FirebaseRecyclerOptions<Products> options) {
         super(options);
@@ -49,6 +49,7 @@ public class ItemAdapter extends FirebaseRecyclerAdapter<Products, ItemAdapter.V
             intent.putExtra("Name", products.getName());
             intent.putExtra("Price", products.getPrice().toString());
             intent.putExtra("Image_Url", products.getImage_Url());
+            intent.putExtra("PID", products.getPID());
             context.startActivity(intent);
         });
     }

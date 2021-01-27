@@ -6,12 +6,27 @@
     tools:context=".ui.ViewItem"
     android:orientation="vertical">
 
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Ecomapplication">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_view_item"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <ImageView
         android:id="@+id/view_item_img"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:src="@drawable/clothingshirt"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/view_item_name"
@@ -34,6 +49,7 @@
         android:textColor="@color/black"/>
 
     <Button
+        android:id="@+id/add_to_cart_button"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_gravity="bottom"

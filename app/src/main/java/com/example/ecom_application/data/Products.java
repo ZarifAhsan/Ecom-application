@@ -2,16 +2,17 @@ package com.example.ecom_application.data;
 
 public class Products {
 
-    private String Name, Image_Url;
+    private String Name, Image_Url, PID;
 
     private Long Price;
 
     public Products() {}
 
-    public Products(String Image_Url, String Name, Long Price) {
+    public Products(String Image_Url, String Name, Long Price, String PID) {
         this.Image_Url = Image_Url;
         this.Name = Name;
         this.Price = Price;
+        this.PID = PID;
     }
 
     public String getName() {
@@ -36,5 +37,13 @@ public class Products {
 
     public void setPrice(Long price) {
         Price = price;
+    }
+
+    public String getPID() {
+        return PID;
+    }
+
+    public void setPID(String PID) {
+        this.PID = PID;
     }
 }
