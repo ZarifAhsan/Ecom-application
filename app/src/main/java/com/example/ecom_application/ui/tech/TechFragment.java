@@ -98,7 +98,7 @@ public class TechFragment extends Fragment {
                         .setQuery(query, Products.class)
                         .build();
 
-        itemAdapter = new ItemAdapter(options);
+        itemAdapter = new ItemAdapter(getContext(), options);
         recyclerView.setAdapter(itemAdapter);
     }
 

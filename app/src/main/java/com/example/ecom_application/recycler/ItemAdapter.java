@@ -1,6 +1,8 @@
 package com.example.ecom_application.recycler;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +15,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.ecom_application.R;
 import com.example.ecom_application.data.Products;
+import com.example.ecom_application.ui.ViewItem;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 
 public class ItemAdapter extends FirebaseRecyclerAdapter<Products, ItemAdapter.ViewHolder> {
 
-    public ItemAdapter(@NonNull FirebaseRecyclerOptions<Products> options) {
+    private Context context;
+
+    public ItemAdapter(Context ct, @NonNull FirebaseRecyclerOptions<Products> options) {
         super(options);
+        context = ct;
     }
 
     @NonNull
@@ -36,7 +42,12 @@ public class ItemAdapter extends FirebaseRecyclerAdapter<Products, ItemAdapter.V
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Products products) {
         holder.itemName.setText("" + products.getName());
         holder.itemPrice.setText("$" + products.getPrice());
-        Glide.with(holder.itemImage.getContext()).load(products.getImage_Url()).into(holder.itemImage);
+        Glide.with(context).load(products.getImage_Url()).into(holder.itemImage);
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ViewItem.class);
+            context.startActivity(intent);
+        });
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
