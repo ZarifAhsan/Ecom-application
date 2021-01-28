@@ -9,15 +9,22 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ecom_application.R;
+import com.example.ecom_application.data.Products;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class ViewItem extends AppCompatActivity {
 
     private Button addToCart;
+
+    String name, price, pid, image;
+
+    public static final ArrayList<Products> productList = new ArrayList<>();
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -35,10 +42,10 @@ public class ViewItem extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String name = intent.getStringExtra("Name");
-        String price = intent.getStringExtra("Price");
-        String image = intent.getStringExtra("Image_Url");
-        String pid = intent.getStringExtra("PID");
+        name = intent.getStringExtra("Name");
+        price = intent.getStringExtra("Price");
+        image = intent.getStringExtra("Image_Url");
+        pid = intent.getStringExtra("PID");
 
         Objects.requireNonNull(getSupportActionBar()).setTitle(name);
 
@@ -51,7 +58,10 @@ public class ViewItem extends AppCompatActivity {
 
     private void bindListeners() {
         addToCart.setOnClickListener(v -> {
+            Products singleItem = new Products(image, name, Long.parseLong(price), pid);
 
+            productList.add(singleItem);
+            Toast.makeText(ViewItem.this, "Item Added to Cart", Toast.LENGTH_SHORT).show();
         });
     }
 }
