@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,7 +32,7 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.CartViewHolder
     @Override
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.item_layout, parent, false);
+        View view = inflater.inflate(R.layout.item_layout_cart, parent, false);
         return new AdapterCart.CartViewHolder(view);
     }
 
@@ -41,7 +42,7 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.CartViewHolder
         Products singleProduct = product.get(position);
 
         holder.productName.setText(singleProduct.getName());
-        holder.productPrice.setText("$" + singleProduct.getPrice());
+        holder.productPriceAndQuantity.setText("$ " + singleProduct.getPrice() + " x " + "1");
         Glide.with(context).load(singleProduct.getImage_Url()).into(holder.imgView);
     }
 
@@ -54,14 +55,22 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.CartViewHolder
 
         private final ImageView imgView;
         private final TextView productName;
-        private final TextView productPrice;
+        private final TextView productPriceAndQuantity;
+        private final TextView productPriceTotal;
+        private final Button increment;
+        private final Button decrement;
+        private final TextView quantity;
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imgView = itemView.findViewById(R.id.item_image);
-            productName = itemView.findViewById(R.id.item_name);
-            productPrice = itemView.findViewById(R.id.item_price);
+            imgView = itemView.findViewById(R.id.product_image);
+            productName = itemView.findViewById(R.id.product_name);
+            productPriceAndQuantity = itemView.findViewById(R.id.product_price_and_quantity);
+            productPriceTotal = itemView.findViewById(R.id.product_price_total);
+            increment = itemView.findViewById(R.id.increment);
+            decrement = itemView.findViewById(R.id.decrement);
+            quantity = itemView.findViewById(R.id.quantity_text_view);
         }
     }
 }
