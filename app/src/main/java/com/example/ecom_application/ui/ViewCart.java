@@ -3,6 +3,9 @@ package com.example.ecom_application.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,24 +21,28 @@ import static com.example.ecom_application.ui.ViewItem.productList;
 
 public class ViewCart extends AppCompatActivity {
 
-    private AdapterCart adapterCart;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_cart);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar_view_cart);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Cart");
+
+        TextView noItem = findViewById(R.id.no_item_text_view);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_cart);
         recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
-        if (productList != null) {
-            adapterCart = new AdapterCart(this, productList);
+        if (!productList.isEmpty()) {
+            AdapterCart adapterCart = new AdapterCart(this, productList);
+            recyclerView.setAdapter(adapterCart);
+        } else {
+            noItem.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
         }
 
-        recyclerView.setAdapter(adapterCart);
+
     }
 }
