@@ -72,6 +72,8 @@
     <string name="view_item">View Item</string>
     <string name="shirt">Shirt</string>
     <string name="add_to_cart">Add To Cart</string>
+    <string name="total_cost">Total Cost:</string>
+    <string name="place_order">Place Order</string>
 
     <string-array name="Diy_products">
         <item>Paint</item>

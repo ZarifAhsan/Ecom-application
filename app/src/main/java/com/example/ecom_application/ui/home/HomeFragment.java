@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.ecom_application.R;
@@ -34,7 +35,7 @@ public class HomeFragment extends Fragment {
 
     NetworkInfo networkInfo;
 
-    LinearLayout linearLayout;
+    ScrollView layout;
 
 
     @Override
@@ -50,7 +51,7 @@ public class HomeFragment extends Fragment {
         connMgr = (ConnectivityManager) requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         networkInfo = connMgr.getActiveNetworkInfo();
 
-        linearLayout = view.findViewById(R.id.contents);
+        layout = view.findViewById(R.id.layout_home);
 
         int[] images = {R.drawable.diy_paint_bq, R.drawable.diy_paint_brush, R.drawable.diywallpaper,
                 R.drawable.sealant};
@@ -70,7 +71,7 @@ public class HomeFragment extends Fragment {
             initLoader();
         } else {
             noInternet.setVisibility(View.VISIBLE);
-            linearLayout.setVisibility(View.INVISIBLE);
+            layout.setVisibility(View.INVISIBLE);
         }
     }
 

@@ -22,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_items_added"
-        android:textColor="@color/black"
         android:textSize="32sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,12 +33,44 @@
         android:id="@+id/recycler_cart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/total_initials"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_view_cart"
         app:layout_constraintVertical_bias="0.0" />
+
+    <RelativeLayout
+        android:id="@+id/total_initials"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_alignParentStart="true"
+            android:padding="8dp"
+            android:text="@string/total_cost"/>
+
+        <TextView
+            android:id="@+id/total_cost_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_alignParentEnd="true"
+            android:padding="8dp"
+            android:text="@string/_69"/>
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
