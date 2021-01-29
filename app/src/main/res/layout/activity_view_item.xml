@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.ViewItem"
     android:orientation="vertical">
 
@@ -15,6 +16,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_view_item"
             android:layout_width="match_parent"
+            app:titleTextColor="@color/white"
+            app:subtitleTextColor="@color/white"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary" />
 
@@ -54,7 +57,7 @@
         android:layout_height="65dp"
         android:layout_gravity="bottom"
         android:layout_margin="16dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:text="@string/add_to_cart"
         android:background="@color/black"/>
 

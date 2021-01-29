@@ -58,7 +58,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="item_image">Item image</string>
-    <string name="_69">$69</string>
+    <string name="_69">$ 69</string>
+    <string name="_69_">$ 69 x 1</string>
     <string name="wallet">Wallet</string>
     <string name="e_mail_address">E-mail Address</string>
     <string name="password">Password</string>
@@ -74,6 +75,12 @@
     <string name="add_to_cart">Add To Cart</string>
     <string name="total_cost">Total Cost:</string>
     <string name="place_order">Place Order</string>
+    <string name="this_is_a_shirt">This is a Shirt</string>
+    <string name="_138">$ 138</string>
+    <string name="plus">+</string>
+    <string name="_0">0</string>
+    <string name="minus">-</string>
+    <string name="_1">1</string>
 
     <string-array name="Diy_products">
         <item>Paint</item>
