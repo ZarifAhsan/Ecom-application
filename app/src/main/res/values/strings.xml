@@ -54,6 +54,7 @@
     <string name="orderConfirmed">Your order has been confirmed.</string>
     <string name="view_profile">View Profile</string>
     <string name="profile_name">Profile Name</string>
+    <string name="profile_name_">Profile Name: </string>
     <string name="sports">Sports</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
