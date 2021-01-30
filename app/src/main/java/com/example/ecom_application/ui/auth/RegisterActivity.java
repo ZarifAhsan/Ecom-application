@@ -34,6 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDb;
 
+    public static String finalMEmail = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity {
             String emailValue2 = emailValue.replace(".", "_");
             mEmail = emailName + "_" + emailValue2;
         }
-        String finalMEmail = mEmail;
+        finalMEmail = mEmail;
 
         DatabaseReference ref = mDb.getReference().child("Users");
         ref.addListenerForSingleValueEvent(new ValueEventListener() {

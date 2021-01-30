@@ -40,8 +40,8 @@ public class ItemAdapter extends FirebaseRecyclerAdapter<Products, ItemAdapter.V
     @SuppressLint("SetTextI18n")
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Products products) {
-        holder.itemName.setText("" + products.getName());
-        holder.itemPrice.setText("$" + products.getPrice());
+        holder.itemName.setText(products.getName());
+        holder.itemPrice.setText("$ " + products.getPrice());
         Glide.with(context).load(products.getImage_Url()).into(holder.itemImage);
 
         holder.itemView.setOnClickListener(v -> {

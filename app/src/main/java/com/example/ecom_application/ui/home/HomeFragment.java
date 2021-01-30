@@ -1,5 +1,6 @@
 package com.example.ecom_application.ui.home;
 
+import android.app.DownloadManager;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -19,7 +20,12 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.ecom_application.R;
+import com.example.ecom_application.data.Products;
+import com.example.ecom_application.recycler.ItemAdapter;
 import com.example.ecom_application.recycler.ItemAdapterHome;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.Objects;
 
@@ -27,16 +33,15 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView1, recyclerView2;
 
-    ItemAdapterHome itemAdapterHome;
-
     TextView noInternet;
+
+    ItemAdapterHome itemAdapterHome1, itemAdapterHome2;
 
     ConnectivityManager connMgr;
 
     NetworkInfo networkInfo;
 
     ScrollView layout;
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -53,14 +58,6 @@ public class HomeFragment extends Fragment {
 
         layout = view.findViewById(R.id.layout_home);
 
-        int[] images = {R.drawable.diy_paint_bq, R.drawable.diy_paint_brush, R.drawable.diywallpaper,
-                R.drawable.sealant};
-
-        String[] productName = getResources().getStringArray(R.array.Diy_products);
-        String[] productPrice = getResources().getStringArray(R.array.Diy_price);
-
-        itemAdapterHome = new ItemAdapterHome(getContext(), productName, productPrice, images);
-
         checkNetworkConnectivity();
 
         return view;
@@ -69,23 +66,69 @@ public class HomeFragment extends Fragment {
     private void checkNetworkConnectivity() {
         if (networkInfo != null && networkInfo.isConnected()) {
             initLoader();
+            itemAdapterHome1.startListening();
+            itemAdapterHome2.startListening();
         } else {
             noInternet.setVisibility(View.VISIBLE);
             layout.setVisibility(View.INVISIBLE);
         }
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        checkNetworkConnectivity();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (itemAdapterHome1 != null) {
+            itemAdapterHome1.stopListening();
+        }
+
+        if (itemAdapterHome2 != null) {
+            itemAdapterHome2.stopListening();
+        }
+    }
+
     private void initLoader() {
         // First recycler view
-        recyclerView1.setAdapter(itemAdapterHome);
         LinearLayoutManager layoutManager1
                 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView1.setLayoutManager(layoutManager1);
 
+        Query query1 = FirebaseDatabase.getInstance()
+                .getReference()
+                .child("Products")
+                .child("Recommended");
+
+        FirebaseRecyclerOptions<Products> options1 =
+                new FirebaseRecyclerOptions.Builder<Products>()
+                        .setQuery(query1, Products.class)
+                        .build();
+
+        itemAdapterHome1 = new ItemAdapterHome(getContext(), options1);
+        recyclerView1.setAdapter(itemAdapterHome1);
+
+
+
         // Second recycler view
-        recyclerView2.setAdapter(itemAdapterHome);
         LinearLayoutManager layoutManager2
                 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView2.setLayoutManager(layoutManager2);
+
+        Query query2 = FirebaseDatabase.getInstance()
+                .getReference()
+                .child("Products")
+                .child("DIY");
+
+        FirebaseRecyclerOptions<Products> options2 =
+                new FirebaseRecyclerOptions.Builder<Products>()
+                        .setQuery(query2, Products.class)
+                        .build();
+
+        itemAdapterHome2 = new ItemAdapterHome(getContext(), options2);
+        recyclerView2.setAdapter(itemAdapterHome2);
     }
 }
