@@ -112,6 +112,7 @@
         android:layout_height="33dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="20dp"
+        android:buttonTint="@color/black"
         android:background="@drawable/edit_round"
         android:fontFamily="sans-serif-medium"
         android:text="@string/terms_and_conditions"

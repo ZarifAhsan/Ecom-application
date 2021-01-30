@@ -34,6 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDb;
 
+    public static String username = "";
+
     public static String finalMEmail = "";
 
     @Override
@@ -60,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void bindListeners() {
 
         registerButton.setOnClickListener(v -> {
-            String username = usernameField.getText().toString();
+            username = usernameField.getText().toString();
             String email = emailField.getText().toString();
             String password = passwordField.getText().toString();
 
