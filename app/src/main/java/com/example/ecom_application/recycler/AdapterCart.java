@@ -44,18 +44,31 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.CartViewHolder
 
         holder.productName.setText(singleProduct.getName());
         holder.productPriceAndQuantity.setText("$ " + singleProduct.getPrice() + " x " + "1");
+        holder.productPriceTotal.setText("$ " + singleProduct.getPrice());
         Glide.with(context).load(singleProduct.getImage_Url()).into(holder.imgView);
 
         holder.increment.setOnClickListener(v -> {
             Toast.makeText(context, "Hello", Toast.LENGTH_SHORT).show();
             int i = Integer.parseInt(holder.quantity.getText().toString());
-            holder.quantity.setText(i++ + "");
+
+            String number = String.valueOf(i+1);
+            int totalCost = Integer.parseInt(number) * Integer.parseInt(singleProduct.getPrice().toString());
+
+            holder.productPriceAndQuantity.setText("$ " + singleProduct.getPrice() + " x " + number);
+            holder.quantity.setText(number);
+            holder.productPriceTotal.setText("$ " + String.valueOf(totalCost));
         });
 
         holder.decrement.setOnClickListener(v -> {
             int d = Integer.parseInt(holder.quantity.getText().toString());
             if (d > 1) {
-                holder.quantity.setText(d-- + "");
+                String number = String.valueOf(d-1);
+
+                int totalCost = Integer.parseInt(number) * Integer.parseInt(singleProduct.getPrice().toString());
+
+                holder.productPriceAndQuantity.setText("$ " + singleProduct.getPrice() + " x " + number);
+                holder.quantity.setText(number);
+                holder.productPriceTotal.setText("$ " + String.valueOf(totalCost));
             } else {
                 Toast.makeText(context, "Quantity can't be less than 1", Toast.LENGTH_SHORT).show();
             }

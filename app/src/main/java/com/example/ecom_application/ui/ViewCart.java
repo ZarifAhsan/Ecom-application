@@ -19,6 +19,7 @@ import com.example.ecom_application.recycler.AdapterCart;
 import com.example.ecom_application.recycler.ItemAdapter;
 import com.example.ecom_application.recycler.ItemAdapterHome;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 import static com.example.ecom_application.ui.ViewItem.productList;
@@ -26,6 +27,8 @@ import static com.example.ecom_application.ui.ViewItem.productList;
 public class ViewCart extends AppCompatActivity {
 
     private AdapterCart adapterCart;
+
+    private static final ArrayList<Integer> totalCost = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
