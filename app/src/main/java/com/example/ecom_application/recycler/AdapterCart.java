@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,6 +45,21 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.CartViewHolder
         holder.productName.setText(singleProduct.getName());
         holder.productPriceAndQuantity.setText("$ " + singleProduct.getPrice() + " x " + "1");
         Glide.with(context).load(singleProduct.getImage_Url()).into(holder.imgView);
+
+        holder.increment.setOnClickListener(v -> {
+            Toast.makeText(context, "Hello", Toast.LENGTH_SHORT).show();
+            int i = Integer.parseInt(holder.quantity.getText().toString());
+            holder.quantity.setText(i++ + "");
+        });
+
+        holder.decrement.setOnClickListener(v -> {
+            int d = Integer.parseInt(holder.quantity.getText().toString());
+            if (d > 1) {
+                holder.quantity.setText(d-- + "");
+            } else {
+                Toast.makeText(context, "Quantity can't be less than 1", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

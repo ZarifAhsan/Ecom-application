@@ -50,8 +50,8 @@ public class ViewItem extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle(name);
 
         Glide.with(this).load(image).into(productImage);
-        productName.setText(name);
-        productPrice.setText("$" + price);
+        productName.setText("Name: " + name);
+        productPrice.setText("Price: $" + price);
 
         bindListeners();
     }

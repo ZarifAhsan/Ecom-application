@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +24,8 @@ import java.util.Objects;
 import static com.example.ecom_application.ui.ViewItem.productList;
 
 public class ViewCart extends AppCompatActivity {
+
+    private AdapterCart adapterCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,8 @@ public class ViewCart extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
         if (!productList.isEmpty()) {
-            AdapterCart adapterCart = new AdapterCart(this, productList);
+            adapterCart = new AdapterCart(this, productList);
+            new ItemTouchHelper(ItemTouchHelperCallback).attachToRecyclerView(recyclerView);
             recyclerView.setAdapter(adapterCart);
         } else {
             noItem.setVisibility(View.VISIBLE);
@@ -60,4 +64,17 @@ public class ViewCart extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    ItemTouchHelper.SimpleCallback ItemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            productList.remove(viewHolder.getAdapterPosition());
+            adapterCart.notifyDataSetChanged();
+        }
+    };
 }
