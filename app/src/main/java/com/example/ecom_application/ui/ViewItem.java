@@ -18,6 +18,8 @@ import com.example.ecom_application.data.Products;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import static com.example.ecom_application.ui.ViewCart.totalCostOfItems;
+
 public class ViewItem extends AppCompatActivity {
 
     private Button addToCart;
@@ -60,8 +62,10 @@ public class ViewItem extends AppCompatActivity {
         addToCart.setOnClickListener(v -> {
             Products singleItem = new Products(image, name, Long.parseLong(price), pid);
 
+            totalCostOfItems = totalCostOfItems + Integer.parseInt(price);
             productList.add(singleItem);
             Toast.makeText(ViewItem.this, "Item Added to Cart", Toast.LENGTH_SHORT).show();
+            finish();
         });
     }
 }

@@ -72,18 +72,14 @@
                 android:id="@+id/total_cost_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textSize="24sp"
-                android:textColor="@color/black"
                 android:layout_alignParentEnd="true"
                 android:padding="8dp"
-                android:text="@string/_69"/>
+                android:text="@string/_69"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
         </RelativeLayout>
 
     </LinearLayout>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

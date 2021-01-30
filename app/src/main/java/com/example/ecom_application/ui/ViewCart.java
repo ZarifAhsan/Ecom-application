@@ -39,7 +39,7 @@ public class ViewCart extends AppCompatActivity {
 
     public static int totalCostOfItems = 0;
 
-    private static TextView totalCostView;
+    public static TextView totalCostView;
 
     private static final ArrayList<String> pidList = new ArrayList<>();
 
@@ -55,8 +55,6 @@ public class ViewCart extends AppCompatActivity {
         TextView noItem = findViewById(R.id.no_item_text_view);
         totalCostView = findViewById(R.id.total_cost_text_view);
 
-        totalCostView.setText("$ " + String.valueOf(totalCostOfItems));
-
         RecyclerView recyclerView = findViewById(R.id.recycler_cart);
         recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
@@ -69,12 +67,14 @@ public class ViewCart extends AppCompatActivity {
             recyclerView.setVisibility(View.INVISIBLE);
         }
 
+        findUsername();
         setTotalCost();
     }
 
     @SuppressLint("SetTextI18n")
     public static void setTotalCost() {
-        totalCostView.setText("$ " + String.valueOf(totalCostOfItems));
+        System.out.println(totalCostOfItems);
+        totalCostView.setText("$ " + totalCostOfItems);
     }
 
     @Override
@@ -124,7 +124,18 @@ public class ViewCart extends AppCompatActivity {
             Products item1 = productList.get(i);
             pidList.add(item1.getPID());
         }
+    }
 
-
+    private void findUsername() {
+        String fullEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        String mEmail = fullEmail;
+        if (fullEmail.contains("@")) {
+            String[] mailStripper = fullEmail.split("@");
+            String emailName = mailStripper[0];
+            String emailValue = mailStripper[1];
+            String emailValue2 = emailValue.replace(".", "_");
+            mEmail = emailName + "_" + emailValue2;
+        }
+        finalMEmail = mEmail;
     }
 }

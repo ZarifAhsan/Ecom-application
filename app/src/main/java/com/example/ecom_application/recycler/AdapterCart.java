@@ -51,41 +51,43 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.CartViewHolder
         holder.productPriceTotal.setText("$ " + singleProduct.getPrice());
         Glide.with(context).load(singleProduct.getImage_Url()).into(holder.imgView);
 
-        totalCostOfItems = totalCostOfItems + Integer.parseInt(singleProduct.getPrice().toString());
+//        totalCostOfItems = totalCostOfItems + Integer.parseInt(singleProduct.getPrice().toString());
+        System.out.println(totalCostOfItems);
+        setTotalCost();
 
         holder.increment.setOnClickListener(v -> {
             Toast.makeText(context, "Hello", Toast.LENGTH_SHORT).show();
             int i = Integer.parseInt(holder.quantity.getText().toString());
 
             String number = String.valueOf(i+1);
-            int prevCost = totalCost;
+            int itemCost = Integer.parseInt(singleProduct.getPrice().toString());
             totalCost = Integer.parseInt(number) * Integer.parseInt(singleProduct.getPrice().toString());
 
             holder.productPriceAndQuantity.setText("$ " + singleProduct.getPrice() + " x " + number);
             holder.quantity.setText(number);
             holder.productPriceTotal.setText("$ " + String.valueOf(totalCost));
-            recalculateOrders(totalCost, prevCost);
+            recalculateOrders(itemCost);
         });
 
         holder.decrement.setOnClickListener(v -> {
             int d = Integer.parseInt(holder.quantity.getText().toString());
             if (d > 1) {
                 String number = String.valueOf(d-1);
-                int prevCost = totalCost;
+                int itemCost = Integer.parseInt(singleProduct.getPrice().toString());
                 totalCost = Integer.parseInt(number) * Integer.parseInt(singleProduct.getPrice().toString());
 
                 holder.productPriceAndQuantity.setText("$ " + singleProduct.getPrice() + " x " + number);
                 holder.quantity.setText(number);
                 holder.productPriceTotal.setText("$ " + String.valueOf(totalCost));
-                recalculateOrders(totalCost, prevCost);
+                recalculateOrders(-itemCost);
             } else {
                 Toast.makeText(context, "Quantity can't be less than 1", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void recalculateOrders(int n, int j) {
-        totalCostOfItems = totalCostOfItems + (n-j);
+    private void recalculateOrders(int n) {
+        totalCostOfItems = totalCostOfItems + (n);
         setTotalCost();
     }
 
