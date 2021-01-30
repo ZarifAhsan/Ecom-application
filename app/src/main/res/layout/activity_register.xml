@@ -13,45 +13,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="96dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/register_below"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/usernameField"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
         android:autofillHints=""
         android:background="@drawable/edit_round"
         android:drawableStart="@drawable/ic_account_circle_black_24dp"
         android:drawablePadding="15dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="0dp"
         android:hint="@string/enter_username"
         android:inputType="text"
+        android:paddingStart="16dp"
+        android:paddingEnd="0dp"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/emailAddressField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerTxt"
-        app:layout_constraintVertical_bias="0.783" />
+        app:layout_constraintTop_toBottomOf="@+id/registerTxt" />
 
     <EditText
         android:id="@+id/emailAddressField"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="420dp"
+        android:layout_marginTop="16dp"
         android:autofillHints=""
         android:background="@drawable/edit_round"
         android:drawableStart="@drawable/ic_email_black_24dp"
@@ -62,38 +60,36 @@
         android:paddingEnd="0dp"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameField" />
 
     <EditText
         android:id="@+id/passwordField"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="360dp"
+        android:layout_marginTop="16dp"
         android:autofillHints=""
         android:background="@drawable/edit_round"
         android:drawableStart="@drawable/ic_lock_black_24dp"
         android:drawablePadding="15dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="0dp"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:paddingStart="16dp"
+        android:paddingEnd="0dp"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailAddressField" />
 
     <Button
         android:id="@+id/registerBtn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="67dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="224dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/button_round"
         android:drawableStart="@drawable/ic_arrow_forward_black_24dp"
         android:fontFamily="sans-serif-medium"
@@ -105,22 +101,22 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/termsAndConditionsBox" />
 
     <CheckBox
         android:id="@+id/termsAndConditionsBox"
         android:layout_width="201dp"
         android:layout_height="33dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/edit_round"
         android:fontFamily="sans-serif-medium"
         android:text="@string/terms_and_conditions"
         android:textColor="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/registerBtn"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordField" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
