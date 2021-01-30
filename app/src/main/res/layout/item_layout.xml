@@ -22,7 +22,6 @@
                 android:layout_width="200dp"
                 android:layout_height="100dp"
                 android:contentDescription="@string/item_image"
-                android:src="@drawable/galaxy"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.477"

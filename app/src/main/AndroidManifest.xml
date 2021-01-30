@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecomapplication">
-        <activity android:name=".ui.ViewItem"></activity>
+        <activity android:name=".ui.ViewProfile"></activity>
+        <activity android:name=".ui.ViewItem" />
         <activity android:name=".ui.ViewCart" />
         <activity android:name=".ui.MainUi" />
         <activity android:name=".ui.ContactActivity" />

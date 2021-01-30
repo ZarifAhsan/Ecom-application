@@ -82,6 +82,8 @@
     <string name="minus">-</string>
     <string name="_1">1</string>
     <string name="content_product_description"><![CDATA[<-- Content/Product Description -->]]></string>
+    <string name="Sign_out">Sign Out</string>
+    <string name="email">Email</string>
 
     <string-array name="Diy_products">
         <item>Paint</item>
